@@ -10,8 +10,8 @@ import {
 import isEmailTag from '../utils/is-email-tag';
 import PanelTitle from '../components/panel-title';
 import ReorderIcon from '../icons/reorder';
-import CrossOutlineIcon from '../icons/cross-outline';
 import TagListInput from './input';
+import TrashIcon from '../icons/trash';
 import { openTag, toggleTagEditing } from '../state/ui/actions';
 
 import * as selectors from './../state/selectors';
@@ -64,7 +64,6 @@ const SortableTag = SortableElement(
       className={classNames(`tag-list-item`, `theme-${theme}`)}
       data-tag-name={tag.name}
     >
-      {editingActive && <CrossOutlineIcon onClick={() => trashTag(tag.name)} />}
       <TagListInput
         editable={editingActive}
         isSelected={isSelected}
@@ -78,6 +77,7 @@ const SortableTag = SortableElement(
         }}
         value={tag.name}
       />
+      {editingActive && <TrashIcon onClick={() => trashTag(tag.name)} />}
       {editingActive && allowReordering && <TagHandle />}
     </li>
   )

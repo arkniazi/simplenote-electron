@@ -7,6 +7,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin-left: 13px;
 }
 
 .tag-list {
@@ -45,10 +46,6 @@
       }
     }
   }
-
-  .editable-list-item {
-    padding: 0 5px 0 20px;
-  }
 }
 
 .tag-list-items {
@@ -64,10 +61,16 @@
   svg {
     cursor: pointer;
   }
+}
 
-  .icon-cross-outline {
-    margin-right: 5px;
-    color: $studio-red-50;
+.tag-list-item {
+  .icon-trash {
+    margin-right: 15px;
+    color: $studio-simplenote-blue-50;
+  }
+
+  .icon-reorder {
+    color: $studio-gray-30;
   }
 }
 
@@ -78,7 +81,7 @@
   width: 50px;
   height: 2em;
   line-height: 2em;
-  margin: 8px 13px;
+  margin: 8px 13px 8px 0;
   padding: 0;
   border: none;
   text-overflow: ellipsis;
@@ -108,126 +111,7 @@ button.tag-list-input {
 }
 
 .icon-reorder {
-  margin-right: 25px;
-}
-
-.editable-list {
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
-  .editable-list-item {
-    display: flex;
-    flex: none;
-    padding: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    -webkit-tap-highlight-color: transparent;
-    position: relative;
-    z-index: 10;
-    transition: $anim;
-
-    svg {
-      vertical-align: middle;
-    }
-  }
-
-  &.editable-list-reordering .editable-list-item {
-    transition: none;
-
-    * {
-      cursor: ns-resize;
-    }
-  }
-
-  .editable-list-item-reordering {
-    z-index: 0;
-  }
-
-  .editable-list-item-left {
-    display: flex;
-    align-items: center;
-    flex: 1 0 auto;
-    transition: $anim;
-    transform: translateX(0);
-  }
-
-  &.editable-list-removable .editable-list-item-left {
-    transform: translateX(-24px);
-  }
-
-  .editable-list-item-content {
-    display: flex;
-    flex: 1 1 auto;
-    align-items: center;
-  }
-
-  .editable-list-trash,
-  .editable-list-reorder {
-    cursor: pointer;
-    flex: none;
-    opacity: 0;
-    pointer-events: none;
-    transition: $anim;
-
-    svg {
-      transition: $anim;
-    }
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .editable-list-trash {
-    width: 22px;
-    margin-right: 4px;
-
-    svg {
-      fill: $studio-red-40;
-    }
-
-    &:focus svg {
-      fill: darken($studio-red-40, 20%);
-    }
-  }
-
-  .editable-list-reorder {
-    display: flex;
-    align-items: center;
-    flex: none;
-    transform: translateX(24px);
-
-    svg {
-      fill: $studio-gray-50;
-    }
-
-    &:focus svg {
-      fill: $studio-gray-80;
-    }
-  }
-
-  &.editable-list-editing {
-    .editable-list-item-left {
-      transform: translateX(-4px);
-    }
-
-    .editable-list-trash {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .editable-list-reorder {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateX(0);
-    }
-  }
+  margin-right: 5px;
 }
 
 .theme-dark {
@@ -240,6 +124,6 @@ button.tag-list-input {
   border-bottom: 1px solid $studio-gray-70;
 
   svg.icon-reorder {
-    fill: $studio-gray-30;
+    fill: $studio-gray-50;
   }
 }
