@@ -6,6 +6,7 @@ type Props = {
   min: number;
   max: number;
   value: number;
+  list: string;
 };
 
 export const Slider: FunctionComponent<Props> = ({
@@ -13,17 +14,26 @@ export const Slider: FunctionComponent<Props> = ({
   min,
   max,
   value,
+  list,
   onChange,
 }) => (
-  <input
-    className="slider"
-    disabled={disabled}
-    type="range"
-    min={min}
-    max={max}
-    value={value}
-    onChange={onChange}
-  />
+  <>
+    <input
+      className="slider"
+      disabled={disabled}
+      type="range"
+      min={min}
+      max={max}
+      value={value}
+      list={list}
+      onChange={onChange}
+    />
+    <datalist id={list}>
+      {_.range(min, max + 1).map((value, index) => {
+        return <option key={index}>{value}</option>;
+      })}
+    </datalist>
+  </>
 );
 
 export default Slider;
