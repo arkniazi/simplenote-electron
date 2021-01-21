@@ -61,7 +61,12 @@ const SortableTag = SortableElement(
   }) => (
     <li
       key={tagHash}
-      className={classNames(`tag-list-item`, `theme-${theme}`)}
+      className={classNames(
+        `tag-list-item`,
+        `theme-color-border`,
+        `theme-color-fg`,
+        `theme-${theme}`
+      )}
       data-tag-name={tag.name}
     >
       <TagListInput
@@ -77,8 +82,16 @@ const SortableTag = SortableElement(
         }}
         value={tag.name}
       />
-      {editingActive && <TrashIcon onClick={() => trashTag(tag.name)} />}
-      {editingActive && allowReordering && <TagHandle />}
+      {editingActive && (
+        <button className="button-borderless">
+          <TrashIcon onClick={() => trashTag(tag.name)} />
+        </button>
+      )}
+      {editingActive && allowReordering && (
+        <button className="theme-color-fg-dim">
+          <TagHandle />
+        </button>
+      )}
     </li>
   )
 );
