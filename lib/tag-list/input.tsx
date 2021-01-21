@@ -24,7 +24,7 @@ export class TagListInput extends Component<Props, OwnState> {
   render() {
     const { editable, isSelected, onClick, onDone } = this.props;
     const { value } = this.state;
-    const classes = classNames('tag-list-input', 'theme-color-fg-dim', {
+    const classes = classNames('tag-list-input', 'theme-color-fg', {
       'is-selected': isSelected,
     });
 

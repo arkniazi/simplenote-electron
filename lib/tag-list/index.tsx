@@ -175,7 +175,7 @@ export class TagList extends Component<Props> {
 
     return (
       <div className={classes}>
-        <div className="tag-list-title">
+        <div className="tag-list-title theme-color-border">
           <PanelTitle headingLevel={2}>Tags</PanelTitle>
           {sortedTags.length > 0 && (
             <button
